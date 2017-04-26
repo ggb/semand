@@ -1,0 +1,738 @@
+graph {
+		Cancer_Bats -- Alexisonfire
+
+		Moneen -- Alexisonfire
+
+		Jordan_Hastings -- Alexisonfire
+
+		Billy_Talent -- Alexisonfire
+
+		Wade_MacNeil -- Alexisonfire
+
+		"Dallas_Green_(musician)" -- Alexisonfire
+
+		Alexisonfire -- "Gallows_(band)
+"
+		Alexisonfire -- Moneen
+
+		Alexisonfire -- "Jersey_(band)
+"
+		Alexisonfire -- "Cunter_(band)
+"
+		Alexisonfire -- Rise_Against
+
+		Alexisonfire -- Billy_Talent
+
+		Alexisonfire -- The_Bled
+
+		Alexisonfire -- "Dallas_Green_(musician)
+"
+		Alexisonfire -- Black_Lungs
+
+		"Ian_D'Sa" -- Alexisonfire
+
+		"Cunter_(band)" -- Alexisonfire
+
+		"Jersey_(band)" -- Alexisonfire
+
+		George_Pettit -- Alexisonfire
+
+		Black_Lungs -- Alexisonfire
+
+		"Gallows_(band)" -- Alexisonfire
+
+		Wade_MacNeil -- "Gallows_(band)
+"
+		"Spycatcher_(band)" -- "Gallows_(band)
+"
+		"Krokodil_(British_band)" -- "Gallows_(band)
+"
+		"Matt_Hyde_(British_producer)" -- "Gallows_(band)
+"
+		Black_Lungs -- "Gallows_(band)
+"
+		"Gallows_(band)" -- "Pure_Love_(band)
+"
+		"Gallows_(band)" -- Black_Lungs
+
+		"Gallows_(band)" -- "Krokodil_(British_band)
+"
+		"Gallows_(band)" -- "Frank_Carter_&_The_Rattlesnakes
+"
+		"Gallows_(band)" -- "Spycatcher_(band)
+"
+		"Frank_Carter_&_The_Rattlesnakes" -- "Gallows_(band)
+"
+		"Pure_Love_(band)" -- "Gallows_(band)
+"
+		Moneen -- "Cunter_(band)
+"
+		Moneen -- Black_Lungs
+
+		"Cunter_(band)" -- Moneen
+
+		Black_Lungs -- Moneen
+
+		Garron_DuPree -- Moneen
+
+		The_Artist_Life -- "Jersey_(band)
+"
+		Jordan_Hastings -- "Jersey_(band)
+"
+		Saint_Alvia -- "Jersey_(band)
+"
+		The_Creepshow -- "Jersey_(band)
+"
+		"Grade_(band)" -- "Jersey_(band)
+"
+		Ian_Blackwood -- "Jersey_(band)
+"
+		"Jersey_(band)" -- The_Creepshow
+
+		"Jersey_(band)" -- The_Artist_Life
+
+		"Jersey_(band)" -- "Cunter_(band)
+"
+		"Jersey_(band)" -- Saint_Alvia_Cartel
+
+		"Jersey_(band)" -- Black_Lungs
+
+		"Jersey_(band)" -- "Grade_(band)
+"
+		Black_Lungs -- "Jersey_(band)
+"
+		Jordan_Hastings -- "Cunter_(band)
+"
+		"Anti-Flag" -- Rise_Against
+
+		Tom_Morello -- Rise_Against
+
+		Todd_Mohney -- Rise_Against
+
+		Only_Crime -- Rise_Against
+
+		"Hagfish_(band)" -- Rise_Against
+
+		Zach_Blair -- Rise_Against
+
+		Billy_Talent -- Rise_Against
+
+		"Baxter_(punk_band)" -- Rise_Against
+
+		"The_Honor_System_(band)" -- Rise_Against
+
+		"Jon_Snodgrass_(musician)" -- Rise_Against
+
+		Arma_Angelus -- Rise_Against
+
+		Axis_of_Justice -- Rise_Against
+
+		"88_Fingers_Louie" -- Rise_Against
+
+		The_Methadones -- Rise_Against
+
+		Rise_Against -- Gwar
+
+		Rise_Against -- The_Killing_Tree
+
+		Rise_Against -- "Baxter_(punk_band)
+"
+		Rise_Against -- "The_Honor_System_(band)
+"
+		Rise_Against -- Arma_Angelus
+
+		Rise_Against -- "88_Fingers_Louie
+"
+		Rise_Against -- Only_Crime
+
+		Rise_Against -- "Hagfish_(band)
+"
+		Joe_Principe -- Rise_Against
+
+		Tim_McIlrath -- Rise_Against
+
+		Brandon_Barnes -- Rise_Against
+
+		The_Killing_Tree -- Rise_Against
+
+		"Anti-Flag" -- Billy_Talent
+
+		Cancer_Bats -- Billy_Talent
+
+		Ten_Second_Epic -- Billy_Talent
+
+		Indian_Handcrafts -- Billy_Talent
+
+		Jordan_Hastings -- Billy_Talent
+
+		"Brendan_O'Brien_(record_producer)" -- Billy_Talent
+
+		Billy_Talent -- "Monster_Truck_(band)
+"
+		Billy_Talent -- Cancer_Bats
+
+		Billy_Talent -- Royal_Republic
+
+		Billy_Talent -- Indian_Handcrafts
+
+		Billy_Talent -- "Anti-Flag
+"
+		Billy_Talent -- "AFI_(band)
+"
+		Billy_Talent -- Hollerado
+
+		Billy_Talent -- Sum_41
+
+		Sum_41 -- Billy_Talent
+
+		Aaron_Solowoniuk -- Billy_Talent
+
+		Time_Is_a_Thief -- Billy_Talent
+
+		"Ian_D'Sa" -- Billy_Talent
+
+		Benjamin_Kowalewicz -- Billy_Talent
+
+		The_Bled -- Coma_Prevail
+
+		Fiddler_Records -- The_Bled
+
+		Doug_MacGregor -- "Dallas_Green_(musician)
+"
+		Attack_in_Black -- "Dallas_Green_(musician)
+"
+		"Dallas_Green_(musician)" -- "Dallas_Green_(musician)
+"
+		"Dallas_Green_(musician)" -- "You+Me
+"
+		"Dallas_Green_(musician)" -- "Shad_&_Dallas
+"
+		"Dallas_Green_(musician)" -- Helicon_Blue
+
+		"Jack_Lawrence_(musician)" -- "Dallas_Green_(musician)
+"
+		Black_Lungs -- "Dallas_Green_(musician)
+"
+		Jacquire_King -- "Dallas_Green_(musician)
+"
+		Jordan_Hastings -- Black_Lungs
+
+		The_Creepshow -- Black_Lungs
+
+		Wade_MacNeil -- Black_Lungs
+
+		George_Pettit -- Black_Lungs
+
+		Black_Lungs -- Cancer_Bats
+
+		Black_Lungs -- Bedouin_Soundclash
+
+		Black_Lungs -- Attack_in_Black
+
+		Black_Lungs -- The_Creepshow
+
+		Cancer_Bats -- At_the_Mercy_of_Inspiration
+
+		Cancer_Bats -- AxeWound
+
+		Cancer_Bats -- AIDS_Kitten
+
+		Cancer_Bats -- Dance_Laury_Dance
+
+		Indian_Handcrafts -- Cancer_Bats
+
+		At_the_Mercy_of_Inspiration -- Cancer_Bats
+
+		"Hexes_(band)" -- Cancer_Bats
+
+		AxeWound -- Cancer_Bats
+
+		Liam_Cormier -- Cancer_Bats
+
+		Tim_McIlrath -- Cancer_Bats
+
+		"Ian_D'Sa" -- "The_Operation_M.D.
+"
+		"Ian_D'Sa" -- Die_Mannequin
+
+		George_Pettit -- "Fucked_Up_(band)
+"
+		The_Suicide_File -- "Pure_Love_(band)
+"
+		"Frank_Carter_&_The_Rattlesnakes" -- "Pure_Love_(band)
+"
+		"Pure_Love_(band)" -- "Frank_Carter_&_The_Rattlesnakes
+"
+		"Pure_Love_(band)" -- The_Suicide_File
+
+		"Pure_Love_(band)" -- The_Hope_Conspiracy
+
+		Cry_For_Silence -- "Krokodil_(British_band)
+"
+		"Krokodil_(British_band)" -- "Slipknot_(band)
+"
+		"Krokodil_(British_band)" -- Bloodhound_Gang
+
+		"Krokodil_(British_band)" -- "Hexes_(band)
+"
+		"Krokodil_(British_band)" -- Sikth
+
+		"Krokodil_(British_band)" -- "A_(band)
+"
+		"Krokodil_(British_band)" -- Cry_For_Silence
+
+		Alessandro_Venturella -- "Krokodil_(British_band)
+"
+		"Heights_(band)" -- "Frank_Carter_&_The_Rattlesnakes
+"
+		"Frank_Carter_&_The_Rattlesnakes" -- "Heights_(band)
+"
+		"Frank_Carter_&_The_Rattlesnakes" -- The_Ghost_of_a_Thousand
+
+		Cry_For_Silence -- "Spycatcher_(band)
+"
+		"Spycatcher_(band)" -- "Haunts_(band)
+"
+		"Spycatcher_(band)" -- Cry_For_Silence
+
+		"Matt_Hyde_(British_producer)" -- "As_I_Lay_Dying_(band)
+"
+		"Matt_Hyde_(British_producer)" -- "Ash_(band)
+"
+		"Matt_Hyde_(British_producer)" -- "Machine_Head_(band)
+"
+		"Matt_Hyde_(British_producer)" -- Funeral_for_a_Friend
+
+		"Matt_Hyde_(British_producer)" -- "Slipknot_(band)
+"
+		Garron_DuPree -- Saves_the_Day
+
+		Garron_DuPree -- Eisley
+
+		Garron_DuPree -- Taking_Back_Sunday
+
+		Garron_DuPree -- "Moving_Mountains_(band)
+"
+		Garron_DuPree -- "Say_Anything_(band)
+"
+		Garron_DuPree -- Mutemath
+
+		Garron_DuPree -- Amber_Heard
+
+		The_Creepshow -- Walk_off_the_Earth
+
+		"Sarah_Blackwood_(Canadian_singer)" -- The_Creepshow
+
+		Walk_off_the_Earth -- The_Creepshow
+
+		The_Artist_Life -- At_the_Mercy_of_Inspiration
+
+		The_Artist_Life -- "Grade_(band)
+"
+		The_Artist_Life -- Stereos
+
+		At_the_Mercy_of_Inspiration -- The_Artist_Life
+
+		Saint_Alvia -- "Grade_(band)
+"
+		"Grade_(band)" -- "Jonathan_Thomas_(band)
+"
+		"Grade_(band)" -- "The_Swarm_(band)
+"
+		"Grade_(band)" -- To_The_Lions
+
+		"Grade_(band)" -- "Acrid_(band)
+"
+		"Grade_(band)" -- Saint_Alvia
+
+		"Grade_(band)" -- The_Black_Maria
+
+		The_Black_Maria -- "Grade_(band)
+"
+		Saint_Alvia -- "Boys_Night_Out_(band)
+"
+		Ian_Blackwood -- This_Is_The_Noise
+
+		Gwar -- "Rigor_Mortis_(band)
+"
+		Gwar -- "X-Cops_(band)
+"
+		Gwar -- "Green_Jellÿ
+"
+		Gwar -- Burden_Brothers
+
+		Gwar -- Death_Piggy
+
+		Gwar -- "Kepone_(band)
+"
+		Gwar -- Dave_Brockie_Experience
+
+		Alter_Natives -- Gwar
+
+		Hans_Orifice -- Gwar
+
+		Stephen_Sphincter -- Gwar
+
+		Only_Crime -- Gwar
+
+		"Hagfish_(band)" -- Gwar
+
+		Joey_Slutman -- Gwar
+
+		Four_Walls_Falling -- Gwar
+
+		Zach_Blair -- Gwar
+
+		"Green_Jellÿ" -- Gwar
+
+		"Mower_(band)" -- Gwar
+
+		Burden_Brothers -- Gwar
+
+		Balsac_the_Jaws_of_Death -- Gwar
+
+		Beefcake_the_Mighty -- Gwar
+
+		Gibby_Haynes -- Gwar
+
+		Jizmak_Da_Gusha -- Gwar
+
+		"Rigor_Mortis_(band)" -- Gwar
+
+		Nippleus_Erectus -- Gwar
+
+		Dave_Brockie -- Gwar
+
+		Flattus_Maximus -- Gwar
+
+		Dave_Brockie_Experience -- Gwar
+
+		Static_Rituals -- Gwar
+
+		Blothar -- Gwar
+
+		Todd_Mohney -- The_Killing_Tree
+
+		"Baxter_(punk_band)" -- The_Killing_Tree
+
+		"The_Honor_System_(band)" -- The_Killing_Tree
+
+		Arma_Angelus -- The_Killing_Tree
+
+		Tim_McIlrath -- The_Killing_Tree
+
+		The_Killing_Tree -- "Baxter_(punk_band)
+"
+		The_Killing_Tree -- Arma_Angelus
+
+		"Sundowner_(band)" -- "Baxter_(punk_band)
+"
+		The_Lawrence_Arms -- "Baxter_(punk_band)
+"
+		"The_Falcon_(band)" -- "Baxter_(punk_band)
+"
+		"Baxter_(punk_band)" -- "The_Honor_System_(band)
+"
+		"Baxter_(punk_band)" -- The_Lawrence_Arms
+
+		"Baxter_(punk_band)" -- "Colossal_(band)
+"
+		"Baxter_(punk_band)" -- The_Broadways
+
+		"The_Honor_System_(band)" -- "Baxter_(punk_band)
+"
+		Tim_McIlrath -- "Baxter_(punk_band)
+"
+		"Tuesday_(band)" -- "The_Honor_System_(band)
+"
+		The_Broadways -- "The_Honor_System_(band)
+"
+		"The_Honor_System_(band)" -- The_Broadways
+
+		"The_Honor_System_(band)" -- "Slapstick_(band)
+"
+		"The_Honor_System_(band)" -- Whale_Horse
+
+		"The_Honor_System_(band)" -- Arma_Angelus
+
+		Tim_McIlrath -- "The_Honor_System_(band)
+"
+		Whale_Horse -- "The_Honor_System_(band)
+"
+		Arma_Angelus -- Racetraitor
+
+		Arma_Angelus -- Fall_Out_Boy
+
+		Racetraitor -- Arma_Angelus
+
+		Joe_Trohman -- Arma_Angelus
+
+		Patrick_Stump -- Arma_Angelus
+
+		Pete_Wentz -- Arma_Angelus
+
+		Fall_Out_Boy -- Arma_Angelus
+
+		Tim_McIlrath -- Arma_Angelus
+
+		"88_Fingers_Louie" -- Explode_and_Make_Up
+
+		"88_Fingers_Louie" -- Alkaline_Trio
+
+		Joe_Principe -- "88_Fingers_Louie
+"
+		"Bill_Stevenson_(musician)" -- Only_Crime
+
+		Descendents -- Only_Crime
+
+		Only_Crime -- "Black_Flag_(band)
+"
+		Only_Crime -- Descendents
+
+		Only_Crime -- "Converge_(band)
+"
+		Only_Crime -- "Good_Riddance_(band)
+"
+		Only_Crime -- The_Frisk
+
+		Only_Crime -- "All_(band)
+"
+		Only_Crime -- "Hagfish_(band)
+"
+		Only_Crime -- Modern_Life_Is_War
+
+		Only_Crime -- "Bane_(band)
+"
+		"Hagfish_(band)" -- Only_Crime
+
+		Zach_Blair -- Only_Crime
+
+		Russ_Rankin -- Only_Crime
+
+		"Outbreak_(band)" -- Only_Crime
+
+		"All_(band)" -- Only_Crime
+
+		"Good_Riddance_(band)" -- Only_Crime
+
+		"Bane_(band)" -- Only_Crime
+
+		"Hagfish_(band)" -- "Armstrong_(band)
+"
+		"Hagfish_(band)" -- Toadies
+
+		"Hagfish_(band)" -- Burden_Brothers
+
+		Zach_Blair -- "Hagfish_(band)
+"
+		"Anti-Flag" -- White_Wives
+
+		Tom_Morello -- "Anti-Flag
+"
+		Hostage_Calm -- "Anti-Flag
+"
+		White_Wives -- "Anti-Flag
+"
+		The_Coup -- "Anti-Flag
+"
+		Justin_Sane -- "Anti-Flag
+"
+		Middle_Finger_Salute -- "Anti-Flag
+"
+		Cypress_Hill -- Tom_Morello
+
+		Serj_Tankian -- Tom_Morello
+
+		Tom_Morello -- Audioslave
+
+		Tom_Morello -- "Lock_Up_(American_band)
+"
+		Tom_Morello -- "Flea_(musician)
+"
+		Tom_Morello -- "Class_of_'99
+"
+		Tom_Morello -- Raekwon
+
+		Tom_Morello -- Chad_Smith
+
+		Tom_Morello -- RZA
+
+		Tom_Morello -- "Kiss_My_Ass%3A_Classic_Kiss_Regrooved
+"
+		Tom_Morello -- Serj_Tankian
+
+		Tom_Morello -- "Device_(metal_band)
+"
+		Tom_Morello -- National_Basketball_Association
+
+		Tom_Morello -- Travis_Barker
+
+		Tom_Morello -- Linkin_Park
+
+		Tom_Morello -- Bruce_Springsteen
+
+		Tom_Morello -- "Electric_Sheep_(band)
+"
+		Tom_Morello -- John_Fogerty
+
+		Tom_Morello -- Cypress_Hill
+
+		Tom_Morello -- Axis_of_Justice
+
+		Tom_Morello -- The_Nightwatchman
+
+		Tom_Morello -- LL_Cool_J
+
+		Tom_Morello -- "Calle_13_(band)
+"
+		Tom_Morello -- Rage_Against_the_Machine
+
+		Tom_Morello -- Street_Sweeper_Social_Club
+
+		Chad_Smith -- Tom_Morello
+
+		Bruce_Springsteen -- Tom_Morello
+
+		"Primus_(band)" -- Tom_Morello
+
+		Shooter_Jennings -- Tom_Morello
+
+		"Pendulum_(band)" -- Tom_Morello
+
+		Ike_Reilly -- Tom_Morello
+
+		Residente -- Tom_Morello
+
+		Todd_Mohney -- "The_Falcon_(band)
+"
+		Zach_Blair -- The_DRAKULAS
+
+		Zach_Blair -- Vanishing_Life
+
+		Zach_Blair -- "Armstrong_(band)
+"
+		Frank_Turner -- "Jon_Snodgrass_(musician)
+"
+		"Jon_Snodgrass_(musician)" -- Bad_Astronaut
+
+		"Jon_Snodgrass_(musician)" -- Tony_Sly
+
+		"Jon_Snodgrass_(musician)" -- Joey_Cape
+
+		"Jon_Snodgrass_(musician)" -- Lagwagon
+
+		"Jon_Snodgrass_(musician)" -- Two_Cow_Garage
+
+		"Jon_Snodgrass_(musician)" -- Frank_Turner
+
+		"Jon_Snodgrass_(musician)" -- Armchair_Martian
+
+		"Jon_Snodgrass_(musician)" -- Chad_Price
+
+		"Jon_Snodgrass_(musician)" -- "Drag_the_River_(Colorado_band)
+"
+		"Jon_Snodgrass_(musician)" -- Cory_Branan
+
+		"Jon_Snodgrass_(musician)" -- Scorpios
+
+		Scorpios -- "Jon_Snodgrass_(musician)
+"
+		Joey_Cape -- "Jon_Snodgrass_(musician)
+"
+		System_of_a_Down -- Axis_of_Justice
+
+		John_Dolmayan -- Axis_of_Justice
+
+		Serj_Tankian -- Axis_of_Justice
+
+		"The_F.C.C." -- Axis_of_Justice
+
+		"Flea_(musician)" -- Axis_of_Justice
+
+		"The_Deviants_(band)" -- Axis_of_Justice
+
+		Axis_of_Justice -- Soundgarden
+
+		Axis_of_Justice -- "+44_(band)
+"
+		Axis_of_Justice -- Red_Hot_Chili_Peppers
+
+		Axis_of_Justice -- Audioslave
+
+		Axis_of_Justice -- "Tool_(band)
+"
+		Axis_of_Justice -- "Jane's_Addiction
+"
+		Axis_of_Justice -- Rage_Against_the_Machine
+
+		Axis_of_Justice -- Stone_Sour
+
+		Axis_of_Justice -- The_Nightwatchman
+
+		Axis_of_Justice -- Scars_on_Broadway
+
+		Axis_of_Justice -- "Blink-182
+"
+		Axis_of_Justice -- System_of_a_Down
+
+		Axis_of_Justice -- "Slipknot_(band)
+"
+		Scars_on_Broadway -- Axis_of_Justice
+
+		"Wayne_Kramer_(guitarist)" -- Axis_of_Justice
+
+		Audioslave -- Axis_of_Justice
+
+		System_of_a_Down -- Serj_Tankian
+
+		System_of_a_Down -- George_Clinton_and_His_Gangsters_of_Love
+
+		System_of_a_Down -- "The_F.C.C.
+"
+		System_of_a_Down -- "Mt._Helium
+"
+		System_of_a_Down -- Scars_on_Broadway
+
+		System_of_a_Down -- Deftones
+
+		System_of_a_Down -- Metallica
+
+		System_of_a_Down -- Achozen
+
+		John_Dolmayan -- System_of_a_Down
+
+		Serj_Tankian -- System_of_a_Down
+
+		Shavo_Odadjian -- System_of_a_Down
+
+		Greg_Fidelman -- System_of_a_Down
+
+		VoKee -- System_of_a_Down
+
+		Ontronik_Khachaturian -- System_of_a_Down
+
+		Onesidezero -- System_of_a_Down
+
+		Achozen -- System_of_a_Down
+
+		"Mower_(band)" -- System_of_a_Down
+
+		Bad_Acid_Trip -- System_of_a_Down
+
+		Kultur_Shock -- System_of_a_Down
+
+		Daron_Malakian -- System_of_a_Down
+
+		Viza -- System_of_a_Down
+
+		Rick_Rubin -- System_of_a_Down
+
+		Dana_Nielsen -- System_of_a_Down
+
+		"Mt._Helium" -- System_of_a_Down
+
+		"Arto_Tunçboyacıyan" -- System_of_a_Down
+
+		Scars_on_Broadway -- System_of_a_Down
+
+}
