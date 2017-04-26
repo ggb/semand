@@ -1,3 +1,3 @@
 # semand
 
-![Bands](bandgraph.png?raw=true "Bands")
+![Bands](https://github.com/ggb/semand/blob/master/bandgraph.PNG?raw=true "Bands")
