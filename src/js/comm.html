@@ -1,0 +1,21 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Communication test</title>
+  
+</head>
+
+<body>
+  <script>
+
+    const ws = new WebSocket("ws://localhost:9090/ws")
+    ws.addEventListener("message", (m) => console.log("echo:", m.data))
+
+
+
+  </script>
+</body>
+</html>
