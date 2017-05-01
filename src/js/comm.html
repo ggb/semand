@@ -5,16 +5,85 @@
   <meta charset="utf-8">
 
   <title>Communication test</title>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
 </head>
 
 <body>
   <script>
+    const Graph = function() {
+      const nodes = []
+      const edges = []
 
+      const addNode = function(node) {
+        const contains = _.any(nodes, n => n.id === node.id)
+        if(!contains) nodes.push(node)
+      }
+
+      const createNode = function(name) {
+        const node = {
+          id: name,
+          group: 1
+        }
+        addNode(node)
+      }
+
+      const addEdge = function(edge) {
+        const contains = _.any(edges, e => {
+          return e.source === edge.source && e.target === edge.target
+        })
+        if(!contains) edges.push(edge)
+      }
+
+      const createEdge = function(from, to) {
+        const edge = {
+            source: from,
+            target: to,
+            value: 3
+        }
+        addEdge(edge)
+      }
+
+      const getNodes = function() {
+        return nodes
+      }
+
+      const getEdges = function() {
+        return edges
+      }
+
+      const getGraph = function() {
+        return {
+          nodes,
+          links: edges
+        }
+      }
+
+      return {addNode, addEdge, createNode, createEdge, getNodes, getEdges, getGraph}
+    }
+
+    const g = Graph()
     const ws = new WebSocket("ws://localhost:9090/ws")
-    ws.addEventListener("message", (m) => console.log("echo:", m.data))
 
+    const prepare = function(s) {
+      return s.replace("http://dbpedia.org/resource/", "").replace(/_\(.*\)/, "")
+    }
 
+    ws.addEventListener("message", msg => {
+      const [s1, s2] = msg.data.split(",")
+
+      if(s2 !== undefined) {
+        const source = prepare(s1)
+        const target = prepare(s2)
+        g.createNode(source)
+        g.createNode(target)
+        g.createEdge(source, target)
+      } else {
+        console.log(msg.data)
+      }
+    })
+
+    // https://bl.ocks.org/mbostock/0adcc447925ffae87975a3a81628a196
 
   </script>
 </body>
