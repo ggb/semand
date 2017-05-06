@@ -6,63 +6,46 @@
 
   <title>Communication test</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-
+  <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
-
 <body>
+  <svg width="960" height="1000"></svg>
   <script>
-    const Graph = function() {
-      const nodes = []
-      const edges = []
-
-      const addNode = function(node) {
-        const contains = _.any(nodes, n => n.id === node.id)
-        if(!contains) nodes.push(node)
-      }
-
-      const createNode = function(name) {
-        const node = {
-          id: name,
-          group: 1
-        }
-        addNode(node)
-      }
-
-      const addEdge = function(edge) {
-        const contains = _.any(edges, e => {
-          return e.source === edge.source && e.target === edge.target
-        })
-        if(!contains) edges.push(edge)
-      }
-
-      const createEdge = function(from, to) {
-        const edge = {
-            source: from,
-            target: to,
-            value: 3
-        }
-        addEdge(edge)
-      }
-
-      const getNodes = function() {
-        return nodes
-      }
-
-      const getEdges = function() {
-        return edges
-      }
-
-      const getGraph = function() {
-        return {
-          nodes,
-          links: edges
-        }
-      }
-
-      return {addNode, addEdge, createNode, createEdge, getNodes, getEdges, getGraph}
+    
+    const nodes = []
+    const links = []
+    
+    const addNode = function(node) {
+      const contains = _.any(nodes, n => n.id === node.id)
+      if(!contains) nodes.push(node)
     }
 
-    const g = Graph()
+    const createNode = function(name) {
+      const node = {
+        id: name,
+        group: 1
+      }
+      addNode(node)
+    }
+
+    const addEdge = function(edge) {
+      const contains = _.any(links, e => {
+        return e.source === edge.source && e.target === edge.target
+      })
+      if(!contains) links.push(edge)
+    }
+
+    const createEdge = function(from, to) {
+      const fromNode = _.find(nodes, n => from === n.id)
+      const toNode = _.find(nodes, n => to === n.id)
+      const edge = {
+          source: fromNode,
+          target: toNode,
+          value: 3
+      }
+      addEdge(edge)
+    }
+
     const ws = new WebSocket("ws://localhost:9090/ws")
 
     const prepare = function(s) {
@@ -75,15 +58,81 @@
       if(s2 !== undefined) {
         const source = prepare(s1)
         const target = prepare(s2)
-        g.createNode(source)
-        g.createNode(target)
-        g.createEdge(source, target)
+        createNode(source)
+        createNode(target)
+        createEdge(source, target)
+        restart()
       } else {
         console.log(msg.data)
       }
     })
 
-    // https://bl.ocks.org/mbostock/0adcc447925ffae87975a3a81628a196
+    var svg = d3.select("svg"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height"),
+        color = d3.scaleOrdinal(d3.schemeCategory10);
+
+    var simulation = d3.forceSimulation(nodes)
+        .force("charge", d3.forceManyBody())
+        .force("link", d3.forceLink().id(function(d) { return d.id; }))
+        .force("x", d3.forceX())
+        .force("y", d3.forceY())
+        .alphaTarget(1)
+        .on("tick", ticked);
+
+    var g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")"),
+        link = g.append("g").attr("stroke", "#000").attr("stroke-width", 1.5).selectAll(".link"),
+        node = g.append("g").attr("stroke", "#fff").attr("stroke-width", 1.5).selectAll(".node");
+
+    restart();
+
+    function restart() {
+
+        console.log(JSON.stringify(links))
+
+        // Apply the general update pattern to the nodes.
+        node = node.data(nodes, function(d) { return d.id;});
+
+        node.exit().transition()
+            .attr("r", 0)
+            .remove();
+
+        node = node.enter().append("circle")
+            .attr("fill", function(d) { return color(d.id); })
+            .call(function(node) { node.transition().attr("r", 8); })
+          .merge(node);
+
+        // Apply the general update pattern to the links.
+        link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
+
+        // Keep the exiting links connected to the moving remaining nodes.
+        link.exit().transition()
+            .attr("stroke-opacity", 0)
+            .attrTween("x1", function(d) { return function() { return d.source.x; }; })
+            .attrTween("x2", function(d) { return function() { return d.target.x; }; })
+            .attrTween("y1", function(d) { return function() { return d.source.y; }; })
+            .attrTween("y2", function(d) { return function() { return d.target.y; }; })
+            .remove();
+
+        link = link.enter().append("line")
+            .call(function(link) { link.transition().attr("stroke-opacity", 1); })
+          .merge(link);
+
+        // Update and restart the simulation.
+        simulation.nodes(nodes);
+        simulation.force("link").links(links);
+        simulation.alpha(1).restart();
+      }
+
+      function ticked() {
+        node.attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; })
+
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+      }
 
   </script>
 </body>
