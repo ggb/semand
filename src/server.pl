@@ -31,7 +31,7 @@ load_band(A, S) :-
   findall(C, (rdf(C,'http://dbpedia.org/ontology/associatedBand',A)), L2),
   append(L1, L2, S).
 
-load_bands(WebSocket, _, _, _, 50) :-
+load_bands(WebSocket, _, _, _, 100) :-
   ws_send(WebSocket, text("Maximum band load size exceeded")).
 load_bands(WebSocket, _, [Current|_], Current, _) :-
   ws_send(WebSocket, text("Target band found.")),
