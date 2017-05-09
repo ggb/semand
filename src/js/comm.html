@@ -10,26 +10,26 @@
   <style>
 
   line.links  {
-    stroke: #999;
-    stroke-opacity: 0.6;
+    stroke: #999
+    stroke-opacity: 0.6
   }
 
   circle.nodes  {
-    stroke: #fff;
-    stroke-width: 1.5px;
+    stroke: #fff
+    stroke-width: 1.5px
   }
 
   text {
-    font-size: 14px;
-    opacity: 0;
-    font-family: Ubuntu Mono;
-    display: none;
+    font-size: 14px
+    opacity: 0
+    font-family: Ubuntu Mono
+    display: none
   }
 
   text.show {
-    opacity: 1;
-    display: block;
-    font-size: 19px;
+    opacity: 1
+    display: block
+    font-size: 19px
   }
 
   </style>
@@ -78,6 +78,7 @@
       return s.replace("http://dbpedia.org/resource/", "").replace(/_\(.*\)/, "")
     }
 
+    const debounced_restart = _.debounce(restart, 100)
     ws.addEventListener("message", msg => {
       const [s1, s2] = msg.data.split(",")
 
@@ -87,77 +88,77 @@
         createNode(source)
         createNode(target)
         createEdge(source, target)
-        _.debounce(restart, 50)
+        debounced_restart()
       } else {
         console.log(msg.data)
       }
     })
 
-    var svg = d3.select("svg"),
+    const svg = d3.select("svg"),
         width = +svg.attr("width"),
         height = +svg.attr("height"),
-        color = d3.scaleOrdinal(["#b3b3b3","#E86850","#587498"]);
+        color = d3.scaleOrdinal(["#b3b3b3","#E86850","#587498"])
 
-    var simulation = d3.forceSimulation(nodes)
+    const simulation = d3.forceSimulation(nodes)
         .force("charge", d3.forceManyBody())
-        .force("link", d3.forceLink().id(function(d) { return d.id; }))
+        .force("link", d3.forceLink().id(function(d) { return d.id }))
         .force("x", d3.forceX())
         .force("y", d3.forceY())
         .alphaTarget(1)
-        .on("tick", ticked);
+        .on("tick", ticked)
 
-    var g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")"),
+    let g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")"),
         link = g.append("g").attr("stroke", "#000").attr("stroke-width", 1.5).selectAll(".link"),
-        node = g.append("g").attr("stroke", "#fff").attr("stroke-width", 1.5).selectAll(".node");
+        node = g.append("g").attr("stroke", "#fff").attr("stroke-width", 1.5).selectAll(".node")
 
-    restart();
+    restart()
 
     function restart() {
         // Apply the general update pattern to the nodes.
-        node = node.data(nodes, function(d) { return d.id;});
+        node = node.data(nodes, d => d.id)
 
         node.exit().transition()
             .attr("r", 0)
-            .remove();
+            .remove()
 
         node = node.enter().append("circle")
-            .attr("fill", function(d) { return color(d.group); })
-            .call(function(node) { node.transition().attr("r", 8); })
-          .merge(node);
+            .attr("fill", d => color(d.group))
+            .call(function(node) { node.transition().attr("r", 8) })
+          .merge(node)
 
         // Apply the general update pattern to the links.
-        link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
+        link = link.data(links, d => d.source.id + "-" + d.target.id)
 
         // Keep the exiting links connected to the moving remaining nodes.
         link.exit().transition()
             .attr("stroke-opacity", 0)
-            .attrTween("x1", function(d) { return function() { return d.source.x; }; })
-            .attrTween("x2", function(d) { return function() { return d.target.x; }; })
-            .attrTween("y1", function(d) { return function() { return d.source.y; }; })
-            .attrTween("y2", function(d) { return function() { return d.target.y; }; })
-            .remove();
+            .attrTween("x1", d => () => d.source.x)
+            .attrTween("x2", d => () => d.target.x)
+            .attrTween("y1", d => () => d.source.y)
+            .attrTween("y2", d => () => d.target.y)
+            .remove()
 
         link = link.enter().append("line")
-            .call(function(link) { link.transition().attr("stroke-opacity", 1); })
-          .merge(link);
+            .call(function(link) { link.transition().attr("stroke-opacity", 1) })
+          .merge(link)
         
-        node.attr("class", "nodes");
-        link.attr("class", "links");
+        node.attr("class", "nodes")
+        link.attr("class", "links")
 
         // Update and restart the simulation.
-        simulation.nodes(nodes);
-        simulation.force("link").links(links);
-        simulation.alpha(1).restart();
+        simulation.nodes(nodes)
+        simulation.force("link").links(links)
+        simulation.alpha(1).restart()
       }
 
       function ticked() {
-        node.attr("cx", function(d) { return d.x; })
-            .attr("cy", function(d) { return d.y; })
+        node.attr("cx", d => d.x )
+            .attr("cy", d => d.y )
 
-        link.attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
+        link.attr("x1", d => d.source.x )
+            .attr("y1", d => d.source.y )
+            .attr("x2", d => d.target.x )
+            .attr("y2", d => d.target.y )
       }
 
   </script>

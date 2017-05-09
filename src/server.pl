@@ -37,7 +37,7 @@ load_bands(WebSocket, _, [Current|_], Current, _) :-
   ws_send(WebSocket, text("Target band found.")),
   rdf_load(Current, [format(xml)]).
 load_bands(WebSocket, Visited, [Current|Open], Target, N) :-
-  ws_send(WebSocket, text(Current)),
+  % ws_send(WebSocket, text(Current)),
   (connected(Target, _) -> 
     format("Found solution after ~w hops.\n", [N]),
     rdf_load(Target, [format(xml)]);
