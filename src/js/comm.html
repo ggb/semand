@@ -10,26 +10,26 @@
   <style>
 
   line.links  {
-    stroke: #999
-    stroke-opacity: 0.6
+    stroke: #999;
+    stroke-opacity: 0.6;
   }
 
   circle.nodes  {
-    stroke: #fff
-    stroke-width: 1.5px
+    stroke: #fff;
+    stroke-width: 1.5px;
   }
 
   text {
-    font-size: 14px
-    opacity: 0
-    font-family: Ubuntu Mono
-    display: none
+    font-size: 14px;
+    /* opacity: 0; */
+    font-family: Ubuntu Mono;
+    display: none;
   }
 
   text.show {
-    opacity: 1
-    display: block
-    font-size: 19px
+    opacity: 1;
+    display: block;
+    font-size: 19px;
   }
 
   </style>
@@ -109,22 +109,29 @@
 
     let g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")"),
         link = g.append("g").attr("stroke", "#000").attr("stroke-width", 1.5).selectAll(".link"),
-        node = g.append("g").attr("stroke", "#fff").attr("stroke-width", 1.5).selectAll(".node")
+        node = g.append("g").attr("stroke", "#fff").attr("stroke-width", 1.5).selectAll(".node"),
+        text = g.append("g").attr("stroke", "#fff").attr("stroke-width", 1.5).selectAll(".text")
 
     restart()
 
     function restart() {
-        // Apply the general update pattern to the nodes.
+        // Apply the general update pattern to the nodes; same for texts
         node = node.data(nodes, d => d.id)
+        text = node.data(nodes, d => d.id)
 
         node.exit().transition()
             .attr("r", 0)
+            .remove()
+        text.exit().transition()
             .remove()
 
         node = node.enter().append("circle")
             .attr("fill", d => color(d.group))
             .call(function(node) { node.transition().attr("r", 8) })
           .merge(node)
+        text = text.enter().append("text")
+            .attr("class", function(d) { return d.id })
+            .text(function(d) { return d.id; });
 
         // Apply the general update pattern to the links.
         link = link.data(links, d => d.source.id + "-" + d.target.id)
@@ -144,6 +151,7 @@
         
         node.attr("class", "nodes")
         link.attr("class", "links")
+        text.attr("class", "texts")
 
         // Update and restart the simulation.
         simulation.nodes(nodes)
@@ -154,6 +162,9 @@
       function ticked() {
         node.attr("cx", d => d.x )
             .attr("cy", d => d.y )
+        
+        node.attr("x", d => d.x )
+            .attr("y", d => d.y )
 
         link.attr("x1", d => d.source.x )
             .attr("y1", d => d.source.y )
