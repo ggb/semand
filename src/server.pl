@@ -60,12 +60,17 @@ band_paths(WebSocket, Band1, Band2) :-
   ws_send(WebSocket, text("Before load_bands")),
   load_bands(WebSocket, [], [Q1], Q2, 0).
 
+dispatch_message(["graph", Band1, Band2], WebSocket) :-
+  band_paths(WebSocket, Band1, Band2).
+dispatch_message(_, WebSocket) :-
+  ws_send(WebSocket, text("Unknown Message")).
 
 echo(WebSocket) :-
     ws_receive(WebSocket, Message),
     (   Message.opcode == close
     ->  true
-    ;   band_paths(WebSocket, Message.data, 'Black_Lungs'),
+    ;   split_string(Message.data, ",", "", L),
+        dispatch_message(L, WebSocket),
         echo(WebSocket)
     ).
 

@@ -21,12 +21,18 @@
 
   text {
     font-size: 14px;
-    /* opacity: 0; */
+    opacity: 0;
     font-family: Ubuntu Mono;
-    /* display: none; */
+    display: none;
   }
 
   text.show {
+    opacity: 1;
+    display: block;
+    font-size: 17px;
+  }
+
+  text.alwaysVisible {
     opacity: 1;
     display: block;
     font-size: 19px;
@@ -35,11 +41,65 @@
   </style>
 </head>
 <body>
+  <div id="controls">
+    <input id="firstName" type="text">
+    <input id="secondName" type="text">
+
+    <button id="send">Semand!</button>
+  </div>
+
   <svg width="960" height="1000"></svg>
   <script>
     
-    const nodes = []
-    const links = []
+    const fst = document.querySelector("#firstName")
+    const snd = document.querySelector("#secondName")
+    const button = document.querySelector("#send")
+
+    const ws = new WebSocket("ws://localhost:9090/ws")
+    let fstBand,
+        sndBand
+    const send = function(fst, snd) {
+      fstBand = fst
+      sndBand = snd
+      ws.send(`graph,${fst},${snd}`)
+    }
+
+    const prepare = function(s) {
+      return s.replace("http://dbpedia.org/resource/", "")
+              .replace(/_\(.*\)/g, "")
+              .replace(/'/g, "")
+    }
+
+    ws.addEventListener("message", msg => {
+      const [s1, s2] = msg.data.split(",")
+
+      if(s2 !== undefined) {
+        const source = prepare(s1)
+        const target = prepare(s2)
+        createNode(source)
+        createNode(target)
+        createEdge(source, target)
+        restart()
+        
+        if(source === fstBand || target === fstBand) {
+          const band = document.querySelector(`text.${fstBand}`)
+          band.classList.add("alwaysVisible")
+        } 
+        if(source === sndBand || target === sndBand) {
+          const band = document.querySelector(`text.${sndBand}`)
+          band.classList.add("alwaysVisible")
+        } 
+      } else {
+        console.log(msg.data)
+      }
+    })
+
+    button.addEventListener("click", () => send(fst.value, snd.value))
+
+
+
+    let nodes = []
+    let links = []
     
     const addNode = function(node) {
       const contains = _.any(nodes, n => n.id === node.id)
@@ -72,27 +132,16 @@
       addEdge(edge)
     }
 
-    const ws = new WebSocket("ws://localhost:9090/ws")
-
-    const prepare = function(s) {
-      return s.replace("http://dbpedia.org/resource/", "").replace(/_\(.*\)/, "")
+    var grouping = function(nodes, links, name, num) {
+      return nodes.map(n => {
+        if(links.find(l => (l.source.id === name && l.target.id === n.id) || (l.source.id === n.id && l.target.id === name)) !== undefined) {
+          n.group = num
+        }
+        return n
+      })
     }
 
-    ws.addEventListener("message", msg => {
-      const [s1, s2] = msg.data.split(",")
 
-      if(s2 !== undefined) {
-        const source = prepare(s1)
-        const target = prepare(s2)
-        createNode(source)
-        createNode(target)
-        createEdge(source, target)
-        restart()
-        // console.log(`# Nodes: ${nodes.length}, # Links: ${links.length}`)
-      } else {
-        console.log(msg.data)
-      }
-    })
 
     const svg = d3.select("svg"),
         width = +svg.attr("width"),
@@ -112,10 +161,12 @@
         node = g.append("g").attr("stroke", "#fff").attr("stroke-width", 1.5).selectAll(".node"),
         text = g.append("g").selectAll(".text")
 
-
     restart()
 
     function restart() {
+        nodes = grouping(nodes, links, fstBand, 5)
+        nodes = grouping(nodes, links, sndBand, 3)
+
         // Apply the general update pattern to the nodes
         node = node.data(nodes, d => d.id)
 
@@ -125,14 +176,24 @@
 
         node = node.enter().append("circle")
             .attr("fill", d => color(d.group))
-            .call(function(node) { node.transition().attr("r", 8) })
+            .attr("class", d => d.id)
+            .on("mouseover", d => { 
+              const t = document.querySelector("text." + d.id)
+              t.classList.add("show")
+            })
+            .on("mouseleave", d => { 
+              const t = document.querySelector("text." + d.id)
+              t.classList.remove("show")
+            })
+            .call(function(node) { node.transition().attr("r", 5) })
           .merge(node)
 
         text = text.data(nodes).enter().append("text")
             .attr("class", "label")
             .attr("class", d => d.id)
             .attr("fill", "black")
-            .text(d => d.id.replace("_", " "))
+            .text(d => d.id.replace(/_/g, " "))
+            .merge(text)
 
         // Apply the general update pattern to the links.
         link = link.data(links, d => d.source.id + "-" + d.target.id)
@@ -150,7 +211,7 @@
             .call(function(link) { link.transition().attr("stroke-opacity", 1) })
           .merge(link)
         
-        node.attr("class", "nodes")
+        // node.attr("class", "nodes")
         link.attr("class", "links")
 
         // Update and restart the simulation.
