@@ -23,7 +23,7 @@
     font-size: 14px;
     /* opacity: 0; */
     font-family: Ubuntu Mono;
-    display: none;
+    /* display: none; */
   }
 
   text.show {
@@ -78,7 +78,6 @@
       return s.replace("http://dbpedia.org/resource/", "").replace(/_\(.*\)/, "")
     }
 
-    const debounced_restart = _.debounce(restart, 100)
     ws.addEventListener("message", msg => {
       const [s1, s2] = msg.data.split(",")
 
@@ -88,7 +87,8 @@
         createNode(source)
         createNode(target)
         createEdge(source, target)
-        debounced_restart()
+        restart()
+        // console.log(`# Nodes: ${nodes.length}, # Links: ${links.length}`)
       } else {
         console.log(msg.data)
       }
@@ -109,7 +109,9 @@
 
     let g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")"),
         link = g.append("g").attr("stroke", "#000").attr("stroke-width", 1.5).selectAll(".link"),
-        node = g.append("g").attr("stroke", "#fff").attr("stroke-width", 1.5).selectAll(".node")
+        node = g.append("g").attr("stroke", "#fff").attr("stroke-width", 1.5).selectAll(".node"),
+        text = g.append("g").selectAll(".text")
+
 
     restart()
 
@@ -125,6 +127,12 @@
             .attr("fill", d => color(d.group))
             .call(function(node) { node.transition().attr("r", 8) })
           .merge(node)
+
+        text = text.data(nodes).enter().append("text")
+            .attr("class", "label")
+            .attr("class", d => d.id)
+            .attr("fill", "black")
+            .text(d => d.id.replace("_", " "))
 
         // Apply the general update pattern to the links.
         link = link.data(links, d => d.source.id + "-" + d.target.id)
@@ -159,6 +167,10 @@
             .attr("y1", d => d.source.y )
             .attr("x2", d => d.target.x )
             .attr("y2", d => d.target.y )
+        
+        text.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")"
+        })
       }
 
   </script>
